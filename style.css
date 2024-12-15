@@ -343,12 +343,20 @@ aside {
     color: #ffffff;
     font-family: 'Joystix', monospace;
     margin-bottom: 30px;
+    text-align: center;
 }
 aside h3 {
     color: #9080E6;
     text-shadow: 1px 1px #260651;
     margin-bottom: 10px;
     text-align: center;
+}
+aside ul {
+    list-style-position: inside;
+    display: inline-block;
+    text-align: left;
+    padding: 0;
+    margin: 0;
 }
 
 footer {
