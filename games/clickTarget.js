@@ -7,7 +7,7 @@ let countdownEvent, moveTargetEvent;
 
 // Preload assets
 function preload() {
-    this.load.image('target', '../assets/clicktarget/target.png');
+    this.load.image('target', '../assets/clickTarget/target.png');
 }
 
 // Set up the game scene
