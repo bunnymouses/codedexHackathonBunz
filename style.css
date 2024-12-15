@@ -1,0 +1,640 @@
+@font-face {
+    font-family: 'Joystix';
+    src: url('assets/joystix monospace.otf') format('opentype');
+}
+* {
+    cursor: url(https://cur.cursors-4u.net/mechanics/mec-5/mec440.cur), auto !important;
+}
+
+/* Cursor Trail Effect */
+.pixel {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    animation: pixel-fade 0.8s linear forwards;
+    color: black;
+}
+
+.pixel::before,
+.pixel::after {
+    content: '';
+    position: absolute;
+    background-color: currentColor;
+}
+
+.pixel::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform: translateY(-50%);
+}
+
+.pixel::after {
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+@keyframes pixel-fade {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+body {
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Joystix', monospace;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+
+
+header {
+    background-color: #260651;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #A741AD;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #9080E6;
+    text-shadow: 2px 2px #270A59;
+    gap: 15px;
+}
+.logo img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    font-family: 'Joystix', monospace;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    text-shadow: 1px 1px #4C358F;
+}
+nav a:hover {
+    color: #A741AD;
+}
+
+main {
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.featured-games {
+    background-color: #4C358F;
+    border: 2px solid #A741AD;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+    max-width: 1200px;
+}
+
+.featured-games h2 {
+    font-size: 24px;
+    color: #A741AD;
+    font-family: 'Joystix', monospace;
+    text-shadow: 2px 2px #260651;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    justify-content: center;
+    align-items: start;
+}
+
+.game-grid a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.game-grid a:hover {
+    text-decoration: none;
+}
+
+/* Game Tile Styling */
+.game-tile {
+    background-color: #260651;
+    border: 2px solid #A741AD;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/*  width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; */
+}
+
+.game-tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.game-tile img {
+    /* width: 100%;
+    height: auto; */
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.game-tile h3 {
+    background-color: #270A59;
+    color: #9080E6;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Joystix', monospace;
+    margin: 0;
+    text-shadow: 1px 1px #4C358F;
+    border-top: 2px solid #A741AD;
+    text-decoration: none;
+}
+.game-tile a {
+    text-decoration: none;
+}
+.wave {
+    color: #9080E6;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Joystix', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.wave span {
+    display: inline-block;
+    animation: wave 1.5s infinite ease-in-out;
+}
+
+/* Add staggered animation delays for each letter */
+.wave span:nth-child(1) { animation-delay: 0s; }
+.wave span:nth-child(2) { animation-delay: 0.1s; }
+.wave span:nth-child(3) { animation-delay: 0.2s; }
+.wave span:nth-child(4) { animation-delay: 0.3s; }
+.wave span:nth-child(5) { animation-delay: 0.4s; }
+.wave span:nth-child(6) { animation-delay: 0.5s; }
+.wave span:nth-child(7) { animation-delay: 0.6s; }
+.wave span:nth-child(8) { animation-delay: 0.7s; }
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.flash {
+    color: #A741AD;
+    font-size: 14px;
+    font-family: 'Joystix', sans-serif;
+    text-align: center;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Latest Games container styling */
+.latest-games {
+    padding: 20px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-family: 'Joystix', monospace;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.latest-games h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #A741AD;
+    text-shadow: 2px 2px #270A59;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+/* Marquee container */
+.marquee {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+
+/* Grid for the marquee */
+.marquee-grid {
+    display: flex;
+    gap: 20px;
+    animation: scroll 12s linear infinite;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+/* Game card styling */
+.game-card {
+    background-color: #260651;
+    border: 3px solid #A741AD;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Joystix', monospace;
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 150px;
+    min-height: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+.game-card img {
+    background-color: #270A59;
+    display: block;
+    text-decoration: none;
+}
+
+
+.game-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+
+/* Game Images in Game Cards */
+.game-image {
+    max-width: 100%;
+    max-height: 140px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    display: block;
+    text-decoration: none;
+}
+
+/* Scrolling Animation for Marquee */
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+/* Pause Scrolling on Hover */
+.marquee-grid:hover {
+    animation-play-state: paused;
+}
+
+aside {
+    background-color: #4C358F;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #A741AD;
+    color: #ffffff;
+    font-family: 'Joystix', monospace;
+    margin-bottom: 30px;
+}
+aside h3 {
+    color: #9080E6;
+    text-shadow: 1px 1px #260651;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+footer {
+    background-color: #260651;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-top: 4px solid #A741AD;
+    font-family: 'Joystix', monospace;
+}
+footer a {
+    color: #9080E6;
+    text-decoration: none;
+    font-family: 'Joystix', monospace;
+}
+footer a:hover {
+    color: #A741AD;
+}
+
+footer p {
+    font-size: 14px;
+    text-shadow: 1px 1px #4C358F;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .game-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    #phaser-game-container {
+        width: 90%;
+        height: auto;
+    }
+    .featured-games {
+        padding: 10px;
+    }
+}
+
+#phaser-game-container {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #260651;
+    border: 2px solid #A741AD;
+    border-radius: 10px;
+}
+
+/* Scrollbar Styles for Modern Browsers */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #A741AD;
+    border-radius: 6px;
+    border: 3px solid #260651;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #270A59;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9080E6;
+}
+
+::-webkit-scrollbar-track:hover {
+    background-color: #4C358F;
+}
+
+/* Compatibility with Firefox */
+* {
+    scrollbar-color: #A741AD #270A59;
+    scrollbar-width: thin;
+}
+
+
+
+.forum-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #4C358F;
+    border: 2px solid #A741AD;
+    border-radius: 10px;
+    color: white;
+}
+
+.forum-topic {
+    margin-bottom: 20px;
+}
+
+.forum-topic h3 {
+    font-family: 'Joystix', monospace;
+    margin-bottom: 10px;
+}
+
+.comments {
+    padding: 10px;
+    background-color: #260651;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.comments p {
+    margin: 5px 0;
+}
+
+textarea {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-family: 'Joystix', monospace;
+    background-color: #4C358F;
+    color: white;
+    border: 1px solid #A741AD;
+    border-radius: 5px;
+    resize: none;
+}
+
+textarea[disabled] {
+    background-color: #260651;
+    color: #777;
+}
+
+button {
+    background-color: #A741AD;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-family: 'Joystix', monospace;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+button:hover {
+    background-color: #A741AD;
+    opacity: 1;
+}
+
+.community-intro {
+    background-color: #260651;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #4C358F;
+    border: 2px solid #A741AD;
+    border-radius: 10px;
+    color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.container h2 {
+    font-family: 'Joystix', monospace;
+    font-size: 36px;
+    text-shadow: 2px 2px #A741AD;
+    margin-bottom: 10px;
+}
+
+.container p {
+    font-family: 'Joystix', monospace;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* Scoped to games.html */
+.games-page {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Joystix', monospace;
+}
+
+.games-page h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #A741AD;
+    text-shadow: 2px 2px #260651;
+}
+
+.games-page .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.games-page .game-card {
+    background-color: #4C358F;
+    border: 2px solid #A741AD;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.games-page .game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.games-page .game-card img {
+    width: 100%;
+    height: auto;
+}
+
+.games-page .game-card h3 {
+    background-color: #260651;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    font-size: 18px;
+    text-shadow: 1px 1px #A741AD;
+}
+
+/* Under Construction Styles */
+.under-construction {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Joystix', monospace;
+    color: #FFFFFF;
+}
+
+.under-construction h2 {
+    font-size: 36px;
+    color: #A741AD;
+    text-shadow: 2px 2px #260651;
+    margin-bottom: 20px;
+}
+
+.construction-text {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.construction-image img {
+    max-width: 300px;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+
+/* Wrapper Flexbox for Footer at Bottom */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+footer {
+    background-color: #260651;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-top: 4px solid #A741AD;
+    font-family: 'Joystix', monospace;
+    box-sizing: border-box;
+}
