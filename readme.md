@@ -40,7 +40,7 @@ Feel free to explore, reminisce, and enjoy the fun vibes of Bunny's Funz and Bun
 
 ## 👩‍💻 About the Creator
 
-Hi, I'm Heather Browning, the solo creator behind **Bunny's Funz and Bunz!** This project represents my first adventure into game development, fueled by my love for retro games and a desire to build something uniquely mine.
+Hi, I'm Heather, the solo creator behind **Bunny's Funz and Bunz!** This project represents my first adventure into game development, fueled by my love for retro games and a desire to build something uniquely mine.
 
 Find me on GitHub: [@bunnymouses](https://github.com/bunnymouses)
 
